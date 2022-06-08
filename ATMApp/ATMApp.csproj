@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ATMLib\ATMLib.csproj" />
+    <ProjectReference Include="..\BankLib\BankLib.csproj" />
   </ItemGroup>
 
 </Project>

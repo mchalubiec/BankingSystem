@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMApp", "ATMApp\ATMApp.csproj", "{81E05E48-D625-4FCE-8D7F-ED8D679E0DAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATMApp", "ATMApp\ATMApp.csproj", "{81E05E48-D625-4FCE-8D7F-ED8D679E0DAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMLib", "ATMLib\ATMLib.csproj", "{D47DDE3A-FF82-49E7-9802-E9CB57BC9107}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATMLib", "ATMLib\ATMLib.csproj", "{D47DDE3A-FF82-49E7-9802-E9CB57BC9107}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankLib", "BankLib\BankLib.csproj", "{0FB81B68-3535-4DB2-8548-CEF92847C213}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D47DDE3A-FF82-49E7-9802-E9CB57BC9107}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D47DDE3A-FF82-49E7-9802-E9CB57BC9107}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D47DDE3A-FF82-49E7-9802-E9CB57BC9107}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FB81B68-3535-4DB2-8548-CEF92847C213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FB81B68-3535-4DB2-8548-CEF92847C213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FB81B68-3535-4DB2-8548-CEF92847C213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FB81B68-3535-4DB2-8548-CEF92847C213}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
