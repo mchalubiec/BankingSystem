@@ -6,12 +6,23 @@ namespace BankLib
 {
     public class Card
     {
-        public long CardNumber { get; set; }
+        public string CardNumber { get; set; }
         public int CardPin { get; set; }
-        public Card(long cardNumber, int cardPin)
+        public Account Account { get; set; }
+        public Card(int cardPin, Account account)
         {
-            CardNumber = cardNumber;
+            CardNumber = CreateCardNumber();
             CardPin = cardPin;
+            Account = account;
+        }
+        private string CreateCardNumber()
+        {
+            string newCardNumber = "";
+            for (int i = 0; i < 16; i++)
+            {
+                newCardNumber += new Random().Next(1, 10).ToString();
+            }
+            return newCardNumber;
         }
     }
 }
