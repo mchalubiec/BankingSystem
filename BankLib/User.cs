@@ -5,13 +5,27 @@ using System.Text;
 
 namespace BankLib
 {
-    public class User : Entity
+    public class User
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
-        public User(string firstName, string secondName)
+        private List<Account> accounts = new List<Account>();
+        public List<Account> Accounts
         {
-            Id = SetId();
+            get
+            {
+                if (!accounts.Any())
+                {
+                    Console.WriteLine($"\t - no accounts created");
+                }
+                return accounts;
+            }
+            set { accounts = value; }
+        }
+        public User(int id, string firstName, string secondName)
+        {
+            Id = id;
             FirstName = firstName;
             SecondName = secondName;
         }
@@ -19,17 +33,16 @@ namespace BankLib
         {
             return $"{FirstName} {SecondName}";
         }
-        public Account SetUpAccount()
+        public void SetUpAccount()
         {
-            return new Account(this);
+            accounts.Add(new Account(this));
         }
-        public override int SetId()
+        public void ShowAccounts()
         {
-            if (!users.Any())
+            foreach (var account in accounts)
             {
-                return 1;
+                Console.WriteLine($"\t - account number: {account.AccountNumber}");
             }
-            return Users.Select(x => x.Id).Max() + 1;
         }
     }
 }

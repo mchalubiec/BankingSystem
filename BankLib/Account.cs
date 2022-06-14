@@ -5,10 +5,23 @@ using System.Text;
 
 namespace BankLib
 {
-    public class Account : Entity
+    public class Account
     {
         public string AccountNumber { get; set; }
         public decimal AccountBalance { get; set; } = 0.00m;
+        private List<Card> cards = new List<Card>();
+        public List<Card> Cards
+        {
+            get
+            {
+                if (!cards.Any())
+                {
+                    Console.WriteLine("\t - there is no card");
+                }
+                return cards;
+            }
+            set { cards = value; }
+        }
         public User User { get; set; }
         public Account(User user)
         {
@@ -29,9 +42,12 @@ namespace BankLib
         {
             return new Card(cardPin, this);
         }
-        public override int SetId()
+        public void ShowCards()
         {
-            throw new NotImplementedException();
+            foreach (var card in cards)
+            {
+                Console.WriteLine($"card number: {card.CardNumber}");
+            }
         }
     }
 }

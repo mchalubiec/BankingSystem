@@ -6,70 +6,43 @@ using System.Text;
 
 namespace BankLib
 {
-    public class Bank : IBank
+    public class Bank
     {
         public string Name { get; set; }
         public List<User> Users { get; set; } = new List<User>();
-        private List<Account> accounts = new List<Account>();
-        public List<Account> Accounts
+        public Bank()
         {
-            get
-            {
-                if (!accounts.Any())
-                {
-                    Console.WriteLine("\tuser does not have an accounts created");
-                }
-                return accounts;
-            }
-            set { accounts = value; }
         }
-        private List<Card> cards = new List<Card>();
-        public List<Card> Cards
+        public void AddUser(int id, string firstName, string secondName)
         {
-            get
-            {
-                if (!cards.Any())
-                {
-                    Console.WriteLine("\tuser does not have any card in any account");
-                }
-                return cards;
-            }
-            set { cards = value; }
+            Users.Add(new User(id, firstName, secondName));
         }
-        public Bank (string name)
+        public void AddAccount()
         {
-            Name = name;
+            Users.Select(x => x.SetUpAccount());
         }
-        public void AddUser(string firstName, string secondName)
-        {
-            Users.Add(new User(firstName, secondName));
-        }
-        public void ShowListUsers()
+        public void ShowUsers()
         {
             foreach (var user in Users)
             {
-                Console.WriteLine($"{user.GetFullName()} - user id: {user.Id}");
+                Console.WriteLine($"# {user.Id}, full name {user.GetFullName()}");
             }
         }
-        public void AddAccount(int currentUserId)
-        {
-            Accounts.Add(Users.First(x => x.Id == currentUserId).SetUpAccount());
-        }
-        public void ShowListAccounts()
+        public void ShowListUserAccounts()
         {
             foreach (var user in Users)
             {
-                Console.WriteLine($"List accounts {user.GetFullName()}");
-                foreach (var account in Accounts.Where(x => x.User == user))
-                {
-                    Console.WriteLine($"\taccount number: {account.AccountNumber}");
-                    Console.WriteLine($"\taccount balance: {account.AccountBalance}");
-                }
+                Console.WriteLine($"# list accounts for {user.GetFullName()}");
+                user.ShowAccounts();
             }            
         }
-        public void AddCard(int currentUserId)
+        public void ShowListUserCards()
         {
-            Cards.Add(Accounts.First(x => x.Id == currentUserId).SetUpCard(1111));
+            foreach (var user in Users)
+            {
+                Console.WriteLine($"# list cards for {user.GetFullName()}");
+                user.Accounts.First(x => x.User.Id == user.Id).ShowCards();
+            }
         }
     }
 }
