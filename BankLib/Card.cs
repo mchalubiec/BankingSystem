@@ -6,11 +6,14 @@ namespace BankLib
 {
     public class Card
     {
+        private static int lastId = 0;
+        public int Id { get; set; }
         public string CardNumber { get; set; }
         public int CardPin { get; set; }
         public Account Account { get; set; }
         public Card(int cardPin, Account account)
         {
+            Id = lastId++;
             CardNumber = CreateCardNumber();
             CardPin = cardPin;
             Account = account;

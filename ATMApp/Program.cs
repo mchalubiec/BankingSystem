@@ -10,9 +10,10 @@ namespace ATMApp
         static void Main(string[] args)
         {
             Bank bank = new Bank();
-            bank.AddUser(1, "Jan", "Kowalski");
-            bank.AddUser(2, "Robert", "Wolny");
-            bank.AddUser(3, "Piotr", "Szybki");
+            bank.AddUser("Jan", "Kowalski");
+            bank.AddUser("Robert", "Wolny");
+            bank.AddUser("Piotr", "Szybki");
+            bank.ShowListUsers();
             bank.ShowListUserAccounts();
             //bank.ShowListUserCards();
             Console.ReadKey();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ namespace BankLib
 {
     public class User
     {
+        private static int lastId = 0;
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
@@ -23,9 +25,9 @@ namespace BankLib
             }
             set { accounts = value; }
         }
-        public User(int id, string firstName, string secondName)
+        public User(string firstName, string secondName)
         {
-            Id = id;
+            Id = lastId++;
             FirstName = firstName;
             SecondName = secondName;
         }
@@ -37,12 +39,9 @@ namespace BankLib
         {
             accounts.Add(new Account(this));
         }
-        public void ShowAccounts()
+        public IEnumerable<Account> GetListAccounts()
         {
-            foreach (var account in accounts)
-            {
-                Console.WriteLine($"\t - account number: {account.AccountNumber}");
-            }
+            return accounts;
         }
     }
 }

@@ -7,6 +7,8 @@ namespace BankLib
 {
     public class Account
     {
+        private static int lastId = 0;
+        public int Id { get; set; }
         public string AccountNumber { get; set; }
         public decimal AccountBalance { get; set; } = 0.00m;
         private List<Card> cards = new List<Card>();
@@ -25,6 +27,7 @@ namespace BankLib
         public User User { get; set; }
         public Account(User user)
         {
+            Id = lastId++;
             AccountNumber = CreateAccountNumber();
             AccountBalance = 0.00m;
             User = user;
@@ -44,6 +47,7 @@ namespace BankLib
         }
         public void ShowCards()
         {
+
             foreach (var card in cards)
             {
                 Console.WriteLine($"card number: {card.CardNumber}");

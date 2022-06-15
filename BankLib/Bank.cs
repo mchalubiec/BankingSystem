@@ -13,19 +13,20 @@ namespace BankLib
         public Bank()
         {
         }
-        public void AddUser(int id, string firstName, string secondName)
+        public void AddUser(string firstName, string secondName)
         {
-            Users.Add(new User(id, firstName, secondName));
+            Users.Add(new User(firstName, secondName));
         }
         public void AddAccount()
         {
-            Users.Select(x => x.SetUpAccount());
+            //Users.Select(x => x.SetUpAccount());
         }
-        public void ShowUsers()
+        public void ShowListUsers()
         {
+            Console.WriteLine("Bank users list");
             foreach (var user in Users)
             {
-                Console.WriteLine($"# {user.Id}, full name {user.GetFullName()}");
+                Console.WriteLine($"- {user.GetFullName()} (identification : {user.Id})");
             }
         }
         public void ShowListUserAccounts()
@@ -33,16 +34,13 @@ namespace BankLib
             foreach (var user in Users)
             {
                 Console.WriteLine($"# list accounts for {user.GetFullName()}");
-                user.ShowAccounts();
+                user.GetListAccounts();
+                foreach (var account in user.Accounts)
+                {
+                    Console.WriteLine($"\t - account number: {account.AccountNumber}");
+                }
+                //user.ShowAccounts();
             }            
-        }
-        public void ShowListUserCards()
-        {
-            foreach (var user in Users)
-            {
-                Console.WriteLine($"# list cards for {user.GetFullName()}");
-                user.Accounts.First(x => x.User.Id == user.Id).ShowCards();
-            }
         }
     }
 }
