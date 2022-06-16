@@ -41,17 +41,5 @@ namespace BankLib
             }
             return newAccountNumber;
         }
-        public Card SetUpCard(int cardPin)
-        {
-            return new Card(cardPin, this);
-        }
-        public void ShowCards()
-        {
-
-            foreach (var card in cards)
-            {
-                Console.WriteLine($"card number: {card.CardNumber}");
-            }
-        }
     }
 }

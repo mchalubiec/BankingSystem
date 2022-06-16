@@ -10,8 +10,14 @@ namespace BankLib
     {
         private static int lastId = 0;
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
+        private string FirstName { get; set; }
+        private string SecondName { get; set; }
+        private string email { get; set; }
+        private string mobilePhone { get; set; }
+        private Address addres { get; set; }
+        private 
+        private bool isLogged { get; set; }
+
         private List<Account> accounts = new List<Account>();
         public List<Account> Accounts
         {
@@ -34,14 +40,6 @@ namespace BankLib
         public string GetFullName()
         {
             return $"{FirstName} {SecondName}";
-        }
-        public void SetUpAccount()
-        {
-            accounts.Add(new Account(this));
-        }
-        public IEnumerable<Account> GetListAccounts()
-        {
-            return accounts;
         }
     }
 }

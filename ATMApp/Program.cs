@@ -9,13 +9,13 @@ namespace ATMApp
     {
         static void Main(string[] args)
         {
-            Bank bank = new Bank();
-            bank.AddUser("Jan", "Kowalski");
-            bank.AddUser("Robert", "Wolny");
-            bank.AddUser("Piotr", "Szybki");
-            bank.ShowListUsers();
-            bank.ShowListUserAccounts();
-            //bank.ShowListUserCards();
+            var user = new User("Jan", "Kowalski");
+            var account = new Account(user);
+            var card = new Card(1111, account);
+            user.Accounts.Add(account);
+            Display.DisplayProp(user);
+            Display.DisplayProp(account);
+            Display.DisplayProp(card);
             Console.ReadKey();
         }
     }
