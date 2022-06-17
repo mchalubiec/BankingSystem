@@ -13,11 +13,15 @@ namespace BankLib
         private string FirstName { get; set; }
         private string SecondName { get; set; }
         private string email { get; set; }
-        private string mobilePhone { get; set; }
-        private Address addres { get; set; }
-        private 
-        private bool isLogged { get; set; }
-
+        private bool isLogged1;
+        private bool GetisLogged()
+        {
+            return isLogged1;
+        }
+        private void SetisLogged(bool value)
+        {
+            isLogged1 = value;
+        }
         private List<Account> accounts = new List<Account>();
         public List<Account> Accounts
         {

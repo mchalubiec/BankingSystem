@@ -16,7 +16,14 @@ namespace BankApp
         {
             Console.WriteLine($"\t\t{content,20} : ({option})");
         }
-        public static int UserInput(string prompt)
+        public static void Announcement(string content)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{content}");
+            Console.ResetColor();
+            PressEnter();
+        }
+        public static int GetInput(string prompt)
         {
             Console.Write($"\n\t\t{prompt, 20} :  ");
             return Convert.ToInt32(Console.ReadLine());
@@ -24,6 +31,11 @@ namespace BankApp
         public static void ClearScreen()
         {
             Console.Clear();
+        }
+        public static void PressEnter()
+        {
+            Console.WriteLine("Press any key to continue..");
+            Console.ReadKey();
         }
     }
 }

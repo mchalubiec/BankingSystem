@@ -6,8 +6,8 @@ namespace BankApp
     {
         static void Main(string[] args)
         {
-            var bank = new Bank();
-            bank.Run();
+            var bankService = new BankService();
+            bankService.Run();
         }
     }
 }

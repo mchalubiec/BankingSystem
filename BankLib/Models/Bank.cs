@@ -9,7 +9,16 @@ namespace BankLib
     public class Bank
     {
         public string Name { get; set; }
-        public List<User> Users { get; set; } = new List<User>();
+        private List<User> users;
+        public Bank(string name)
+        {
+            Name = name;
+        }
+        public List<User> Users
+        {
+            get { return users; }
+            set { users = value; }
+        }
         public void AddUser(string firstName, string secondName)
         {
             Users.Add(new User(firstName, secondName));

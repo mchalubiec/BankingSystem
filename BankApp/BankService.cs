@@ -1,26 +1,35 @@
-﻿using System;
+﻿using BankLib;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BankApp
 {
-    class Bank
+    class BankService
     {
+        private Bank bank;
         private bool end { get; set; }
         private Stack<State> states;
-        public Bank()
+        public BankService()
         {
             InitiateVariables();
+            InitiateBank();
             InitiateStates();
         }
         private void InitiateVariables()
         {
             end = false;
         }
+        private void InitiateBank()
+        {
+            Bank _bank = new Bank("OB. open bank");
+            bank = _bank;
+            _bank.Users = new List<User>();
+        }
         private void InitiateStates()
         {
             states = new Stack<State>();
-            states.Push(new WelcomeScreen(states));
+            states.Push(new WelcomeScreen(states, bank.Users));
         }
         public void Run()
         {
